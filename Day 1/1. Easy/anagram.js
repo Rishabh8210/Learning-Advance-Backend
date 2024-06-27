@@ -8,12 +8,9 @@
 */
 
 function isAnagram(str1, str2) {
-    let t1 = str1.split('').sort().join("");
-    let t2 = str2.split('').sort().join("");
-    return t1 == t2;  
+  let t1 = str1.toLowerCase().split('').sort().join("");
+  let t2 = str2.toLowerCase().split('').sort().join("");
+  return t1 == t2;
 }
-
-const data = isAnagram("Zss dd", "dd Zss")
-console.log("Both inputs are "+ ((data) ? "equal" : "not equal"));
 
 module.exports = isAnagram;

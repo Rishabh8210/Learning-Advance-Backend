@@ -5,16 +5,31 @@
   Once you've implemented the logic, test your code by running
   - `npm run test-palindrome`
 */
-
-function isPalindrome(str) {
-    let len = str.length;
-    for(let i = 0; i < (len / 2); i++){
-        if(str[i] != str[len-1-i])
-          return false;
-    }
-    return true;
+function cleanInput(str){
+  let newStr = "";
+  for(let i = 0; i < str.length; i++)
+  {
+      if(str[i] >= 'a' && str[i] <= 'z')
+      {
+          newStr += str[i];
+      }
   }
+  return newStr;
+}
+function isPalindrome(str) {
+str = str.toLowerCase();
+// cleaning input
+str = cleanInput(str);
 
-const data = isPalindrome("abca")
-console.log("String is palindrome: " + data)
+console.log(str);
+let i = 0;
+let j = str.length - 1;
+while(i < j){
+    if(str[i] != str[j])
+        return false;
+    i++;j--;
+}
+return true;
+}
+console.log(isPalindrome("Able, was I ere I saw Elba!"))
 module.exports = isPalindrome;
